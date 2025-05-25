@@ -1,6 +1,6 @@
 <?php
 get_header();
-echo '<h1>Index Page</h1>';
+echo '<h1>My Index Page</h1>';
 
 while(have_posts()) {
   the_post(); ?>
