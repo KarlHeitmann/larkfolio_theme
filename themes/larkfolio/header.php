@@ -20,7 +20,7 @@
         <ul class="menu flex items-center">
           <li class="menu-item"><a href="<?php echo site_url('/'); ?>">Home</a></li>
           <li class="menu-item"><a href="<?php echo site_url('/prs'); ?>">PRs</a></li>
-          <li class="menu-item"><a href="<?php echo '#'; ?>">About</a></li>
+          <li class="menu-item"><a href="<?php echo site_url('/about'); ?>">About</a></li>
         </ul>
       </div>
     </header>
