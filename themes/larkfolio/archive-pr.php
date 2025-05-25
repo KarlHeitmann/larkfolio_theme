@@ -1,0 +1,23 @@
+<?php
+  get_header();
+  ?>
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold">PRs</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <?php
+      while(have_posts()) {
+        the_post();
+        ?>
+        <div class="border-gray-900 border-3 my-12 p-4 rounded-2xl">
+          <?php get_template_part('template-parts/header-pr'); ?>
+          <p class="my-2">
+            <?php echo get_the_excerpt(); ?>
+          </p>
+          <a class="link-dark mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+  </div>
+  <?php get_footer(); ?>

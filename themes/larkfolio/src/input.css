@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+ 
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 py-2 px-4 rounded-xl font-bold hover:bg-blue-700
+  }
+  .menu-item {
+    @apply rounded-md py-2 px-4 cursor-pointer text-gray-400 hover:bg-gray-100 hover:text-gray-900 font-bold
+  }
+
+  .link-dark {
+    @apply text-gray-900 bg-gray-400 hover:bg-gray-100 hover:text-gray-700 border rounded-md px-4 cursor-pointer font-bold shadow-2xl shadow-cyan-800/20
+  }
+
+  /* Gutenberg editor styles */
+  .wp-block-code {
+    @apply my-8 p-4 border rounded
+  }
+}

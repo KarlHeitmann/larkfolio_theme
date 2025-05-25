@@ -1,0 +1,100 @@
+<?php
+
+  function renderPRLink($args = NULL) {
+    // $pr_number = explode('/', $args['pr_link'])
+    // $pr_number = str_split($args['pr_link'])[-1];
+    $parts_pr = explode('/', $args['pr_link']);
+    $pr_number = end($parts_pr);
+    $external_icon = file_get_contents(get_template_directory() . '/icons/external-link-svgrepo-com.svg')
+    // <a class="border text-gray-700 bg-white rounded m-2 p-1 hover:bg-gray-100"
+    // target="_blank" href="<?php echo $args['pr_link']; ?><!--">PR --><?php // echo $pr_number; ?><!--</a>--> <?php
+    ?>
+      <a
+        class="link-dark"
+        target="_blank"
+        href="<?php echo $args['pr_link']; ?>">
+        PR <?php echo $pr_number; ?>
+        <span
+          class="w-4 inline-block">
+          <?php echo $external_icon; ?>
+        </span>
+      </a>
+    <?php
+  }
+
+  function renderRepositoryLink($args = NULL) {
+    $parts_repo_link = explode('/', $args['repository_link']);
+    $repo_name = end($parts_repo_link);
+    $external_icon = file_get_contents(get_template_directory() . '/icons/external-link-svgrepo-com.svg')
+    ?>
+      <a
+        class="link-dark"
+        target="_blank"
+        href="<?php echo $args['repository_link']; ?>">
+        <?php echo $repo_name; ?>
+        <span
+          class="w-4 inline-block">
+          <?php echo $external_icon; ?>
+        </span>
+      </a>
+    <?php
+  }
+
+// NOTE: mu-plugins are plugins that must be used. They are loaded on every page load.
+function larkfolio_post_types() {
+  // Register Custom Post Type: "pr"
+  register_post_type('pr', array(
+    'show_in_rest' => true,
+    'supports' => array('title', 'editor'),
+    // 'supports' => array('title', 'editor', 'excerpt', 'custom-fields'), // Manually adds custom fields to the post type
+    'rewrite' => array('slug' => 'prs'),
+    'has_archive' => true,
+    'public' => true,
+    'menu_icon' => 'dashicons-media-code',
+    'labels' => array(
+      'name' => 'PRs',
+      'add_new_item' => 'Add New PR',
+      'edit_item' => 'Edit PR',
+      'all_items' => 'All PRs',
+      'singular_name' => 'PR'
+    )
+  ));
+}
+
+add_action('init', 'larkfolio_post_types');
+
+function larkfolio_files() {
+  // <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  wp_enqueue_script('tailwindcss-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array('jquery'), '1.0', true);
+}
+// add_action('wp_enqueue_scripts', 'larkfolio_files');
+  
+function larkfolio_features() {
+  add_theme_support('title-tag');
+  add_theme_support( 'editor-styles' );
+  add_editor_style( 'css/style.css' );
+}
+add_action('after_setup_theme', 'larkfolio_features');
+
+// TAILWINDCSS
+function larkfolio_enqueue_styles() {
+    wp_enqueue_style(
+        'larkfolio-style',
+        get_template_directory_uri() . '/css/style.css',
+        array(),
+        filemtime(get_template_directory() . '/css/style.css')
+    );
+}
+add_action('wp_enqueue_scripts', 'larkfolio_enqueue_styles');
+
+function larkfolio_enqueue_block_editor_assets() {
+    wp_enqueue_style(
+        'larkfolio-editor-style',
+        get_template_directory_uri() . '/css/style.css',
+        array(),
+        filemtime(get_template_directory() . '/css/style.css')
+    );
+}
+add_action('enqueue_block_editor_assets', 'larkfolio_enqueue_block_editor_assets');
+
+?>
