@@ -9,11 +9,15 @@
     $icon_image = "go_logo_aqua.svg";
   } else if ($programming_language == "Rust") {
     $icon_image = "rust_logo_white.svg";
+  } else if ($programming_language == "Node.js") {
+    $icon_image = "node_js_white.svg";
   } else {
     print_r($programming_language);
   }    
   if ($framework == "Ruby on Rails") {
     $framework_icon_image = "ruby_on_rails_logo.svg";
+  } else if ($framework == "React") {
+    $framework_icon_image = "react_logo_aqua.svg";
   }
 ?>
 <div class="flex flex-row">
@@ -26,7 +30,7 @@
   <?php } ?>
   <img class="w-12 h-12"
     src="<?php echo get_template_directory_uri() . '/icons/' . $icon_image; ?>"
-    alt="Programming language: <?php echo $programming_language; ?>"
+    alt="<?php echo $programming_language; ?>"
     >
 </div>
 <div class="flex flex-row justify-end">
