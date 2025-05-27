@@ -17,6 +17,9 @@ get_header();
     <?php
   }
   ?>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <?php get_template_part('template-parts/related-skills'); ?>
+  </div>
 </div>
 <?php
 get_footer();
