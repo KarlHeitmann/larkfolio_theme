@@ -1,5 +1,27 @@
 <?php
 
+  function renderSkillBadge($args = NULL) {
+    $title = $args['title'];
+    // $excerpt = $args['excerpt'];
+    $link = $args['link'];
+    $image = $args['image'];
+      // <span class="w-12 h-12"><php echo wp_trim_words($title, 1); ></span>
+
+    ?>
+      <a
+        class="flex flex-col px-1"
+        href="<?php echo $link; ?>">
+      <?php if ($image) { ?>
+        <img
+          class="w-12 h-12"
+          src="<?php echo $image['url']; ?>"
+          alt="<?php echo $image['alt']; ?>"
+        >
+      <?php } ?>
+      <span class="text-sm text-center"><?php echo $title; ?></span>
+      </a>
+    <?php
+  }
   function renderPRLink($args = NULL) {
     // $pr_number = explode('/', $args['pr_link'])
     // $pr_number = str_split($args['pr_link'])[-1];

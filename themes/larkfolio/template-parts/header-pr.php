@@ -22,16 +22,25 @@
 ?>
 <div class="flex flex-row">
   <h2 class="flex-grow text-xl font-bold"><?php the_title(); ?></h2>
-  <?php if ($framework_icon_image != "") { ?>
-    <img class="w-12 h-12"
-      src="<?php echo get_template_directory_uri() . '/icons/' . $framework_icon_image; ?>"
-      alt="Framework: <?php echo $framework; ?>"
-      >
-  <?php } ?>
-  <img class="w-12 h-12"
-    src="<?php echo get_template_directory_uri() . '/icons/' . $icon_image; ?>"
-    alt="<?php echo $programming_language; ?>"
-    >
+  <div class="flex flex-col items-center">
+    <span class="font-bold">Skills</span>
+    <div class="flex items-center">
+    <?php
+      $relatedSkills = get_field('related_skills');
+      foreach ($relatedSkills as $skill) {
+        $title = get_the_title($skill);
+        // $image = get_field('icon');
+        $image = get_field('icon', $skill); // This is important because PHP uses serialization with arrays
+        renderSkillBadge(array(
+          'title' => $title,
+          // 'excerpt' => get_the_excerpt($skill),
+          'link' => get_the_permalink($skill),
+          'image' => $image
+        ));
+      }
+    ?>
+    </div>
+  </div>
 </div>
 <div class="flex flex-row justify-end">
   <?php renderRepositoryLink(array('repository_link' => get_field('repository_link'))) ?>

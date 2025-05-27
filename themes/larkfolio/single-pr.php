@@ -25,9 +25,7 @@ get_header();
     <p class="m-4">
       <?php the_content(); ?>
     </p>
-  <?php
-  }
-  ?>
+  <?php } ?>
 </div>
 <?php
 get_footer();
