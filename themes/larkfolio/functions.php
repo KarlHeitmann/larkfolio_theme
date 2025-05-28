@@ -1,5 +1,29 @@
 <?php
 
+  function get_posts_indexed_by_skill($post_type) {
+    $query = new WP_Query(array(
+      'post_type' => $post_type,
+      'posts_per_page' => -1,
+      'fields' => 'ids', // just get IDs for performance
+    ));
+
+    $index = [];
+
+    foreach ($query->posts as $post_id) {
+      $related_skills = get_field('related_skills', $post_id, false); // returns array of skill IDs
+      if (!$related_skills) continue;
+
+      foreach ($related_skills as $skill_id) {
+        if (!isset($index[$skill_id])) {
+          $index[$skill_id] = 0;
+        }
+        $index[$skill_id]++;
+      }
+    }
+
+    return $index;
+  }
+
   function renderSkillBadge($args = NULL) {
     $title = $args['title'];
     // $excerpt = $args['excerpt'];

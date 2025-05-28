@@ -19,9 +19,18 @@
     'orderby' => 'rand',
     'post_type' => 'skill',
   ));
+
+  $projectsBySkill = get_posts_indexed_by_skill('project');
+  $experiencesBySkill = get_posts_indexed_by_skill('experience');
+  $prsBySkill = get_posts_indexed_by_skill('pr');
+
   while ($homepageSkills->have_posts()) {
     $homepageSkills->the_post();
-    get_template_part('template-parts/card-skill');
+    get_template_part('template-parts/card-skill', NULL, array(
+      'projectsBySkill' => $projectsBySkill,
+      'experiencesBySkill' => $experiencesBySkill,
+      'prsBySkill' => $prsBySkill
+    ));
   } ?>
   <a
     href="<?php echo site_url('/skills'); ?>"

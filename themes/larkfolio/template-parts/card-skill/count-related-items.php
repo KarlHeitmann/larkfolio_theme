@@ -1,4 +1,5 @@
 <?php
+/*
 $relatedProjects = new WP_Query(array(
   'post_type' => 'project',
   'posts_per_page' => -1,
@@ -32,6 +33,7 @@ $relatedPRs = new WP_Query(array(
     )
   )
 ));
+*/
 ?>
 <!--
 <p>
@@ -56,9 +58,9 @@ $relatedPRs = new WP_Query(array(
   <tbody>
     <tr>
       <td>Count</td>
-      <td><?php echo $relatedPRs->post_count; ?></td>
-      <td><?php echo $relatedExperiences->post_count; ?></td>
-      <td><?php echo $relatedProjects->post_count; ?></td>
+      <td><?php echo $prsBySkill[$args['skill_id']]; ?></td>
+      <td><?php echo $experiencesBySkill[$args['skill_id']]; ?></td>
+      <td><?php echo $projectsBySkill[$args['skill_id']]; ?></td>
     </tr>
   </tbody>
 </table>

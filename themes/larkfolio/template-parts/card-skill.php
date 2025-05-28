@@ -25,6 +25,26 @@
 
     <a class="link-dark mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a>
     <div class="flex-grow"></div>
-    <?php get_template_part('template-parts/card-skill/count-related-items', NULL, array('skill_id' => $skillId)); ?>
+    <?php
+
+    ?>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>PRs</th>
+          <th>Experience</th>
+          <th>Projects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Count</td>
+          <td><?php echo $args['prsBySkill'][$skillId] ?? 0; ?></td>
+          <td><?php echo $args['experiencesBySkill'][$skillId] ?? 0; ?></td>
+          <td><?php echo $args['projectsBySkill'][$skillId] ?? 0; ?></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
