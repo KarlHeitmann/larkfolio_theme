@@ -2,13 +2,18 @@
 get_header();
 ?>
 <div class="container mx-auto px-4">
-  <h1 class="text-3xl font-bold my-12">
-    <a
-      class="link-dark"
-      href="<?php echo site_url('/projects'); ?>">
-      Projects
-    </a>
-  </h1>
+  <div class="flex flex-row items-center">
+    <h1 class="flex-grow text-3xl font-bold my-12">
+      <a
+        class="link-dark"
+        href="<?php echo site_url('/projects'); ?>">
+        Projects
+      </a>
+    </h1>
+    <?php get_template_part('template-parts/skills-widget', NULL, array(
+      'related_skills' => get_field('related_skills')
+    )); ?>
+  </div>
   <?php
   while(have_posts()) {
     the_post(); ?>
@@ -17,9 +22,6 @@ get_header();
     <?php
   }
   ?>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-    <?php get_template_part('template-parts/related-skills'); ?>
-  </div>
 </div>
 <?php
 get_footer();

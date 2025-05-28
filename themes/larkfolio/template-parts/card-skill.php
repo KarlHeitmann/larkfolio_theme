@@ -1,4 +1,4 @@
-<div class="border-gray-900 border-3 mb-12 p-4 rounded-2xl">
+<div class="card">
   <header class="flex items-center">
     <?php
       $image = get_field('icon');
@@ -12,7 +12,7 @@
         <?php
       }
     ?>
-    <h1 class="ml-3"><?php the_title(); ?></h1>
+    <h2 class="ml-3"><?php the_title(); ?></h2>
   </header>
   <p class="my-2">
     <?php echo get_the_excerpt(); ?>

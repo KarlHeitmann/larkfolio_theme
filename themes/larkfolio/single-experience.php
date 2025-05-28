@@ -13,16 +13,18 @@ get_header();
   while(have_posts()) {
     the_post();
     ?>
-      <h2 class="text-2xl font-bold"><?php the_title(); ?></h2>
+      <div class="flex flex-row items-center">
+        <h2 class="flex-grow text-2xl font-bold"><?php the_title(); ?></h2>
+        <?php get_template_part('template-parts/skills-widget', NULL, array(
+          'related_skills' => get_field('related_skills')
+        )); ?>
+      </div>
       <p class="my-2">
         <?php the_content(); ?>
       </p>
   <?php
   }
   ?>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-    <?php get_template_part('template-parts/related-skills'); ?>
-  </div>
 </div>
 <?php
 get_footer();

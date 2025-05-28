@@ -32,63 +32,9 @@ get_header();
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
 
     <?php
-      $relatedItemsQuery = array(
-        'posts_per_page' => -1,
-        'post_type' => 'pr',
-        'orderby' => 'title',
-        'order' => 'ASC',
-        'meta_query' => array(
-          array(
-            'key' => 'related_skills',
-            'compare' => 'LIKE',
-            'value' => '"' . get_the_ID() . '"' // This is important because PHP uses serialization with arrays
-          )
-        )
-      );
-      get_template_part('single-skill/related-to-skill', 'pr', array(
-        'title' => 'Related PRs',
-        'query' => $relatedItemsQuery
-      ));
-    ?>
-    <?php
-      wp_reset_postdata();
-      $query = array(
-        'posts_per_page' => -1,
-        'post_type' => 'experience',
-        'orderby' => 'title',
-        'order' => 'ASC',
-        'meta_query' => array(
-          array(
-            'key' => 'related_skills',
-            'compare' => 'LIKE',
-            'value' => '"' . get_the_ID() . '"' // This is important because PHP uses serialization with arrays
-          )
-        )
-      );
-      get_template_part('single-skill/related-to-skill', NULL, array(
-        'title' => 'Related Experience',
-        'query' => $query
-      ));
-    ?>
-    <?php
-      wp_reset_postdata();
-      $query = array(
-        'posts_per_page' => -1,
-        'post_type' => 'project',
-        'orderby' => 'title',
-        'order' => 'ASC',
-        'meta_query' => array(
-          array(
-            'key' => 'related_skills',
-            'compare' => 'LIKE',
-            'value' => '"' . get_the_ID() . '"' // This is important because PHP uses serialization with arrays
-          )
-        )
-      );
-      get_template_part('single-skill/related-to-skill', NULL, array(
-        'title' => 'Related Projects',
-        'query' => $query
-      ));
+      get_template_part('single-skill/related-prs');
+      get_template_part('single-skill/related-experiences');
+      get_template_part('single-skill/related-projects');
     ?>
   </div>
 </div>

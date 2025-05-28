@@ -4,7 +4,7 @@
     $relatedSkills = get_field('related_skills');
     if ($relatedSkills) {
       ?>
-      <h2 class="text-xl font-bold my-12">Related Skills</h2>
+      <h2 class="my-12">Related Skills</h2>
       <div class="flex">
       <?php
         foreach ($relatedSkills as $skill) {
