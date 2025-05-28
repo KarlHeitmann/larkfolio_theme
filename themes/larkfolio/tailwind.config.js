@@ -8,4 +8,8 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    'list-disc',
+    'list-inside'
+  ]
 }
