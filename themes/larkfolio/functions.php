@@ -67,7 +67,7 @@ function larkfolio_post_types() {
   // Register Custom Post Type: "pr"
   register_post_type('pr', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor'),
+    'supports' => array('title', 'editor', 'excerpt'),
     // 'supports' => array('title', 'editor', 'excerpt', 'custom-fields'), // Manually adds custom fields to the post type
     'rewrite' => array('slug' => 'prs'),
     'has_archive' => true,
@@ -139,7 +139,7 @@ function larkfolio_post_types() {
   // Register Custom Post Type: "education"
   register_post_type('education', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor'),
+    'supports' => array('title', 'editor', 'excerpt'),
     // 'supports' => array('title', 'editor', 'excerpt', 'custom-fields'), // Manually adds custom fields to the post type
     'rewrite' => array('slug' => 'education'),
     'has_archive' => true,
