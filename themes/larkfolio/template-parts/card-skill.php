@@ -12,7 +12,7 @@
         <?php
       }
     ?>
-    <h2 class="ml-3"><?php the_title(); ?></h2>
+    <h3 class="ml-3"><?php the_title(); ?></h2>
   </header>
   <p class="my-2">
     <?php echo get_the_excerpt(); ?>

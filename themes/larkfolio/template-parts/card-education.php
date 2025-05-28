@@ -1,4 +1,4 @@
-<div class="border-gray-900 border-3 mb-12 p-4 rounded-2xl">
+<div class="card">
   <h3><?php the_title(); ?></h3>
   <p class="my-2">
     <?php echo get_the_excerpt(); ?>

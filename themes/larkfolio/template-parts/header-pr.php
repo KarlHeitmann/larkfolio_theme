@@ -1,5 +1,5 @@
-<div class="flex flex-row">
-  <h2 class="flex-grow text-xl font-bold"><?php the_title(); ?></h2>
+<div class="flex flex-row items-center">
+  <h3 class="flex-grow"><?php the_title(); ?></h3>
   <div class="flex flex-col items-center">
     <span class="font-bold">Skills</span>
     <div class="flex items-center">
@@ -19,8 +19,4 @@
     ?>
     </div>
   </div>
-</div>
-<div class="flex flex-row justify-end">
-  <?php renderRepositoryLink(array('repository_link' => get_field('repository_link'))) ?>
-  <?php renderPRLink(array('pr_link' => get_field('pr_link'))); ?>
 </div>
