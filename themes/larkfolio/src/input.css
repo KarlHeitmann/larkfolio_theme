@@ -10,6 +10,9 @@
   h3 {
     @apply text-xl font-bold;
   }
+  table {
+    @apply border-separate border-spacing-2 border rounded border-gray-400 dark:border-gray-500 table-fixed;
+  }
 }
  
 @layer components {
