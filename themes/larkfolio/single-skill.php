@@ -45,7 +45,7 @@ get_header();
           )
         )
       );
-      get_template_part('template-parts/related-to-skill', 'pr', array(
+      get_template_part('single-skill/related-to-skill', 'pr', array(
         'title' => 'Related PRs',
         'query' => $relatedItemsQuery
       ));
@@ -65,7 +65,7 @@ get_header();
           )
         )
       );
-      get_template_part('template-parts/related-to-skill', NULL, array(
+      get_template_part('single-skill/related-to-skill', NULL, array(
         'title' => 'Related Experience',
         'query' => $query
       ));
@@ -85,7 +85,7 @@ get_header();
           )
         )
       );
-      get_template_part('template-parts/related-to-skill', NULL, array(
+      get_template_part('single-skill/related-to-skill', NULL, array(
         'title' => 'Related Projects',
         'query' => $query
       ));
