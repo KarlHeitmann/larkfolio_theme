@@ -1,5 +1,14 @@
 <div class="flex flex-row items-center">
-  <h3 class="flex-grow"><?php the_title(); ?></h3>
+  <h3 class="flex-grow">
+    <?php
+    $permalink = $args['permalink'];
+    if ($permalink == NULL) {
+      the_title();
+    } else {
+      ?> <a class="inline-link" href="<?php echo $permalink; ?>"><?php the_title(); ?></a> <?php
+    }
+    ?>
+  </h3>
   <div class="flex flex-col items-center">
     <span class="font-bold">Skills</span>
     <div class="flex items-center">

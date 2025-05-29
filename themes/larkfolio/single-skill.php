@@ -5,7 +5,7 @@ get_header();
   <h1
     class="text-3xl font-bold my-12">
     <a
-      class="link-dark"
+      class="inline-link"
       href="<?php echo site_url('/skills'); ?>">
       All Skills
     </a>

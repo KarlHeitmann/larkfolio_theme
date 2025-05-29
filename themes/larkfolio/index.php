@@ -12,7 +12,7 @@ while(have_posts()) {
     <div>
       <?php the_excerpt(); ?>
     </div>
-    <p><a class="link-dark mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a></p>
+    <p><a class="btn-link mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a></p>
     </div>
   </div>
   <?php

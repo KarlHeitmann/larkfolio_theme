@@ -12,16 +12,16 @@ get_header();
 <div class="container mx-auto px-4 rounded-2xl">
   <h1 class="text-3xl font-bold my-12">
     <a
-      class="link-dark"
+      class="inline-link"
       href="<?php echo site_url('/prs'); ?>">
-      PRs
+      All PRs
     </a>
   </h1>
   <?php
   while(have_posts()) {
     the_post(); ?>
 
-    <?php get_template_part('template-parts/header-pr'); ?>
+    <?php get_template_part('template-parts/header-pr', NULL, array('permalink' => NULL)); ?>
     <p class="m-4">
       <?php the_content(); ?>
     </p>

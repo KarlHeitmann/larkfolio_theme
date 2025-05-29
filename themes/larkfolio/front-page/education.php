@@ -2,6 +2,7 @@
   <div class="min-h-48">
     <h1 class="text-3xl font-bold my-12">
       <a
+        class="inline-link"
         href="<?php echo site_url('/education'); ?>">
         My Education
       </a>
@@ -25,8 +26,8 @@
 
   <a
     href="<?php echo site_url('/education'); ?>"
-    class="link-dark text-3xl mt-2 inline-block"
+    class="inline-link text-3xl mt-2"
     >
-    See all education
+    More educations...
   </a>
 </section>

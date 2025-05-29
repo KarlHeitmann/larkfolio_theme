@@ -4,7 +4,7 @@ get_header();
 <div class="container mx-auto px-4">
   <h1 class="text-3xl font-bold my-12">
     <a
-      class="link-dark"
+      class="inline-link"
       href="<?php echo site_url('/education'); ?>">
       Education
     </a>

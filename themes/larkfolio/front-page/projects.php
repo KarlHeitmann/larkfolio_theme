@@ -2,6 +2,7 @@
   <div class="min-h-48">
     <h1 class="text-3xl font-bold my-12">
       <a
+        class="inline-link"
         href="<?php echo site_url('/projects'); ?>">
         My side projects
       </a>
@@ -33,8 +34,8 @@
   } ?>
   <a
     href="<?php echo site_url('/projects'); ?>"
-    class="link-dark text-3xl mt-2 inline-block"
+    class="inline-link text-3xl mt-2 inline-block"
     >
-    See all projects
+    More projects...
   </a>
 </section>

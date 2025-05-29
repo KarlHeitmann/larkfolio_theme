@@ -5,9 +5,9 @@ get_header();
   <div class="flex flex-row items-center">
     <h1 class="flex-grow text-3xl font-bold my-12">
       <a
-        class="link-dark"
+        class="inline-link"
         href="<?php echo site_url('/projects'); ?>">
-        Projects
+        All Projects
       </a>
     </h1>
     <?php get_template_part('template-parts/skills-widget', NULL, array(

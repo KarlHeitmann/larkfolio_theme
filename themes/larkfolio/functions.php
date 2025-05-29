@@ -31,18 +31,29 @@
     $image = $args['image'];
       // <span class="w-12 h-12"><php echo wp_trim_words($title, 1); ></span>
 
+        // class="link-badge"
     ?>
       <a
-        class="flex flex-col px-1"
+        class="rounded-xl
+          flex flex-col
+          group
+          items-center
+          w-16 h-19
+          mx-1 p-1
+          bg-gray-800"
         href="<?php echo $link; ?>">
-      <?php if ($image) { ?>
-        <img
-          class="w-12 h-12"
-          src="<?php echo $image['url']; ?>"
-          alt="<?php echo $image['alt']; ?>"
-        >
-      <?php } ?>
-      <span class="text-sm text-center"><?php echo $title; ?></span>
+        <?php if ($image) { ?>
+          <img
+            class="w-12 h-12"
+            src="<?php echo $image['url']; ?>"
+            alt="<?php echo $image['alt']; ?>"
+          >
+        <?php } ?>
+        <span
+          class="text-sm text-center
+            text-amber-300 group-hover:text-amber-500">
+          <?php echo $title; ?>
+        </span>
       </a>
     <?php
   }
@@ -56,7 +67,7 @@
     // target="_blank" href="<?php echo $args['pr_link']; ?><!--">PR --><?php // echo $pr_number; ?><!--</a>--> <?php
     ?>
       <a
-        class="link-dark"
+        class="btn-link"
         target="_blank"
         href="<?php echo $args['pr_link']; ?>">
         PR <?php echo $pr_number; ?>
@@ -74,7 +85,7 @@
     $external_icon = file_get_contents(get_template_directory() . '/icons/external-link-svgrepo-com.svg')
     ?>
       <a
-        class="link-dark"
+        class="btn-link"
         target="_blank"
         href="<?php echo $args['repository_link']; ?>">
         <?php echo $repo_name; ?>

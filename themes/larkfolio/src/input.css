@@ -17,22 +17,36 @@
  
 @layer components {
   .card {
-    @apply bg-gray-700 border-gray-900 border-3 mb-12 p-4 rounded-2xl
+    @apply border-3 rounded-2xl 
+      mb-12 p-4 
+      bg-gray-700 border-gray-900
   }
 
-  .btn-blue {
-    @apply bg-blue-500 py-2 px-4 rounded-xl font-bold hover:bg-blue-700
-  }
   .menu-item {
-    @apply rounded-md py-2 px-4 cursor-pointer text-gray-400 hover:bg-gray-100 hover:text-gray-900 font-bold
+    @apply rounded-md cursor-pointer font-bold
+      py-2 px-4 mx-1
+     bg-slate-900 text-slate-100
+    hover:bg-slate-800 hover:text-slate-50
   }
 
-  .link-dark {
-    @apply text-gray-900 bg-gray-400 hover:bg-gray-100 hover:text-gray-700 border rounded-md px-4 cursor-pointer font-bold shadow-2xl shadow-cyan-800/20
+  .btn-link {
+    @apply font-bold border rounded-lg cursor-pointer
+      px-4 py-2 mx-1
+      bg-gray-950 text-gray-100
+      hover:bg-gray-900 hover:text-gray-50 
+      shadow-md shadow-gray-950
   }
+
+  /*
+  .link-badge {
+    @apply flex flex-col mx-1 p-1 bg-gray-800 rounded-lg text-amber-300 hover:text-amber-500
+  }
+    */
 
   .inline-link {
-    @apply rounded px-1 text-amber-300 hover:text-lime-500 hover:bg-gray-950
+    @apply cursor-pointer
+      text-amber-300
+      hover:text-amber-500
   }
 
   /* Gutenberg editor styles */

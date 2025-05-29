@@ -16,7 +16,7 @@
     <!--<header class="bg-white shadow-md py-2 fixed top-0 left-0 w-full">-->
     <header class="bg-gray-900 shadow-md py-2 w-full">
       <div class="container mx-auto px-4 flex items-center justify-between">
-        <div class="logo text-xl font-bold text-gray-200"><a href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a></div>
+        <div class="logo text-xl font-bold text-gray-200"><a class="menu-item" href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a></div>
         <ul class="menu flex items-center">
           <li class="menu-item"><a href="<?php echo site_url('/'); ?>">Home</a></li>
           <li class="menu-item"><a href="<?php echo site_url('/prs'); ?>">PRs</a></li>
