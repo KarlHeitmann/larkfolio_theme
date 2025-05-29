@@ -25,6 +25,10 @@ get_header();
     <p class="m-4">
       <?php the_content(); ?>
     </p>
+    <div class="flex flex-row justify-end">
+      <?php renderRepositoryLink(array('repository_link' => get_field('repository_link'))) ?>
+      <?php renderPRLink(array('pr_link' => get_field('pr_link'))); ?>
+    </div>
   <?php } ?>
 </div>
 <?php
