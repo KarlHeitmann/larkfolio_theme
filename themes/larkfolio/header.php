@@ -15,16 +15,31 @@
   <body <?php body_class(array('bg-gray-800 text-white')); ?>>
     <!--<header class="bg-white shadow-md py-2 fixed top-0 left-0 w-full">-->
     <header class="bg-gray-900 shadow-md py-2 w-full">
-      <div class="container mx-auto px-4 flex items-center justify-between">
-        <div class="logo text-xl font-bold text-gray-200"><a class="menu-item" href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a></div>
-        <ul class="menu flex items-center">
-          <li class="menu-item"><a href="<?php echo site_url('/'); ?>">Home</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/prs'); ?>">PRs</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/skills'); ?>">Skills</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/projects'); ?>">Projects</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/experience'); ?>">Experience</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/education'); ?>">Education</a></li>
-          <li class="menu-item"><a href="<?php echo site_url('/about'); ?>">About</a></li>
+      <div class="container mx-auto px-4 flex items-center justify-between relative">
+        <div class="logo text-xl font-bold text-gray-200">
+          <a class="menu-item" href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a>
+        </div>
+
+        <!-- Hidden checkbox toggle -->
+        <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+        <!-- Hamburger icon -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+
+        <!-- Menu -->
+        <ul class="absolute top-full left-0 w-full bg-gray-900 text-gray-200 flex-col hidden peer-checked:flex md:flex md:static md:flex-row md:space-x-6 md:w-auto md:bg-transparent">
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/'); ?>">Home</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/prs'); ?>">PRs</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/skills'); ?>">Skills</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/projects'); ?>">Projects</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/experience'); ?>">Experience</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/education'); ?>">Education</a></li>
+          <li class="menu-item px-4 py-2"><a href="<?php echo site_url('/about'); ?>">About</a></li>
         </ul>
       </div>
     </header>
