@@ -194,10 +194,52 @@ add_action('init', 'larkfolio_post_types');
 
 function larkfolio_files() {
   // <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  wp_enqueue_script('tailwindcss-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array('jquery'), '1.0', true);
+  // wp_enqueue_script('tailwindcss-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array('jquery'), '1.0', true);
+  wp_enqueue_script(
+    'main-larkfolio-js',
+    get_theme_file_uri('/js/index.js'),
+    array(),       // No dependencies
+    '1.0',         // Version
+    true           // ✅ Load in footer
+  );
+
 }
-// add_action('wp_enqueue_scripts', 'larkfolio_files');
+add_action('wp_enqueue_scripts', 'larkfolio_files');
   
+add_action('rest_api_init', function () {
+  register_rest_route('mytheme/v1', '/posts-html', [
+    'methods'  => 'POST',
+    'callback' => 'mytheme_render_posts_html',
+    'permission_callback' => '__return_true', // Adjust for auth if needed
+    'args' => [
+      'search' => [
+        'sanitize_callback' => 'sanitize_text_field',
+        'required' => false,
+      ],
+    ]
+  ]);
+});
+
+function mytheme_render_posts_html($request) {
+  $search = $request->get_param('search');
+
+  $query = new WP_Query([
+    'post_type' => 'post',
+    'posts_per_page' => 5,
+    's' => $search,
+  ]);
+
+  $posts = $query->have_posts() ? $query->posts : [];
+
+  ob_start();
+  get_template_part('template-parts/ajax/posts-results', null, ['posts' => $posts]);
+  $html = ob_get_clean();
+
+  return new WP_REST_Response([
+    'html' => $html
+  ], 200);
+}
+
 function larkfolio_features() {
   add_theme_support('title-tag');
   add_theme_support( 'editor-styles' );
