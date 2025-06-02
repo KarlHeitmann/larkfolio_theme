@@ -3,6 +3,9 @@
   ?>
   <div class="container mx-auto px-4">
     <h1 class="text-3xl font-bold my-12">PRs</h1>
+    <div data-controller="hello">
+      Stimulus-powered component
+    </div>
     <div class="flex flex-row">
       <?php
       $skills = new WP_Query(array(
@@ -13,9 +16,14 @@
 
       while($skills->have_posts()) {
         $skills->the_post();
-        $image = get_field('icon')
+        $image = get_field('icon');
+        $skillId = get_the_ID();
         ?>
-        <div class="card">
+        <div
+          data-controller="skillfilter"
+          data-action="click->skillfilter#filter"
+          data-skillfilter-id-value="<?php echo $skillId; ?>"
+          class="card">
           <img
             class="w-12 h-12"
             src="<?php echo $image['url']; ?>"

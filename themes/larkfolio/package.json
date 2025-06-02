@@ -12,6 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@tailwindcss/cli": "^4.1.7",
     "tailwindcss": "^4.1.7"
   }

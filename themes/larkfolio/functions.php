@@ -192,6 +192,14 @@ function larkfolio_post_types() {
 
 add_action('init', 'larkfolio_post_types');
 
+function larkfolio_add_module_type($tag, $handle, $src) {
+  if ($handle === 'stimulus-app') {
+    return "<script type='module' src='" . esc_url($src) . "'></script>";
+  }
+  return $tag;
+}
+add_filter('script_loader_tag', 'larkfolio_add_module_type', 10, 3);
+
 function larkfolio_files() {
   // <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   // wp_enqueue_script('tailwindcss-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array('jquery'), '1.0', true);
@@ -203,8 +211,17 @@ function larkfolio_files() {
     true           // ✅ Load in footer
   );
 
+  wp_enqueue_script(
+    'stimulus-app',
+    get_template_directory_uri() . '/js/stimulus-app.js',
+    [],
+    null,
+    true
+  );
 }
 add_action('wp_enqueue_scripts', 'larkfolio_files');
+
+
   
 add_action('rest_api_init', function () {
   register_rest_route('mytheme/v1', '/prs-html', [
@@ -221,11 +238,11 @@ add_action('rest_api_init', function () {
 });
 
 function mytheme_render_prs_html($request) {
-  // $search = $request->get_param('search');
+  $search = $request->get_param('search');
   // Ruby 56
   // $search = 56;
   // Rust 62
-  $search = 62;
+  // $search = 62;
 
   $query = new WP_Query([
     'post_type' => 'pr',
