@@ -9,7 +9,7 @@ function renderPRLink($args = NULL) {
   // target="_blank" href="<?php echo $args['pr_link']; ?><!--">PR --><?php // echo $pr_number; ?><!--</a>--> <?php
   ?>
     <a
-      class="btn-link"
+      class="btn-link my-1 md:my-0"
       target="_blank"
       href="<?php echo $args['pr_link']; ?>">
       PR <?php echo $pr_number; ?>
@@ -27,7 +27,7 @@ function renderRepositoryLink($args = NULL) {
   $external_icon = file_get_contents(get_template_directory() . '/icons/external-link-svgrepo-com.svg')
   ?>
     <a
-      class="btn-link"
+      class="btn-link my-1 md:my-0"
       target="_blank"
       href="<?php echo $args['repository_link']; ?>">
       <?php echo $repo_name; ?>
