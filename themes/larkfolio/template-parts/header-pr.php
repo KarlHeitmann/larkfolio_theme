@@ -3,9 +3,9 @@
     <?php
     $permalink = $args['permalink'];
     if ($permalink == NULL) {
-      the_title();
+      echo $args['title'];
     } else {
-      ?> <a class="inline-link" href="<?php echo $permalink; ?>"><?php the_title(); ?></a> <?php
+      ?> <a class="inline-link" href="<?php echo $permalink; ?>"><?php echo $args['title']; ?></a> <?php
     }
     ?>
   </h3>
@@ -15,11 +15,11 @@
     <?php
       $relatedSkills = get_field('related_skills');
       foreach ($relatedSkills as $skill) {
-        $title = get_the_title($skill);
+        $skillTitle = get_the_title($skill);
         // $image = get_field('icon');
         $image = get_field('icon', $skill); // This is important because PHP uses serialization with arrays
         renderSkillBadge(array(
-          'title' => $title,
+          'title' => $skillTitle,
           // 'excerpt' => get_the_excerpt($skill),
           'link' => get_the_permalink($skill),
           'image' => $image
