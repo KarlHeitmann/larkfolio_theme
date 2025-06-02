@@ -21,7 +21,8 @@ export default class extends Controller {
     }
     const search = this.filters.join(',')
     currentTarget.classList.add('bg-yellow-500')
-    fetch('/wp-json/larkfolio/v1/prs-html', {
+    // fetch('/wp-json/larkfolio/v1/prs-html', {
+    fetch(this.element.dataset.skillfilterUrlValue, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ search })
