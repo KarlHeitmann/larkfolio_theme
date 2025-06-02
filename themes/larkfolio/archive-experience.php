@@ -7,7 +7,7 @@
       'posts_per_page' => -1,
       'post_type' => 'skill',
     )); ?>
-      <div class="flex flex-row justify-between">
+      <div class="flex flex-row flex-wrap justify-between">
         <?php while($skills->have_posts()) {
           $skills->the_post();
           $image = get_field('icon');

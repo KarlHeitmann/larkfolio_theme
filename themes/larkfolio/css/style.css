@@ -351,6 +351,9 @@
   .flex-row {
     flex-direction: row;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
   .items-center {
     align-items: center;
   }
@@ -622,6 +625,11 @@
   .md\:inline-block {
     @media (width >= 48rem) {
       display: inline-block;
+    }
+  }
+  .md\:table {
+    @media (width >= 48rem) {
+      display: table;
     }
   }
   .md\:w-auto {

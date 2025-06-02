@@ -19,12 +19,12 @@
   <p class="my-2">
     <?php echo get_the_excerpt(); ?>
   </p>
-  <div class="flex items-center">
+  <div class="flex flex-col md:flex-row items-center">
 
     <a class="btn-link mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a>
     <div class="flex-grow"></div>
     <?php $skillId = get_the_ID(); ?>
-    <table>
+    <table class="hidden md:table">
       <thead>
         <tr>
           <th></th>

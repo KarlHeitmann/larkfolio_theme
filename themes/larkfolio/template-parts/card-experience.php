@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="flex flex-row items-center">
+  <div class="flex flex-col md:flex-row md:items-center">
     <h3 class="flex-grow">
       <a href="<?php the_permalink(); ?>" class="inline-link">
         <?php the_title(); ?>
