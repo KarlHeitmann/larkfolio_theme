@@ -204,14 +204,6 @@ function larkfolio_files() {
   // <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   // wp_enqueue_script('tailwindcss-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array('jquery'), '1.0', true);
   wp_enqueue_script(
-    'main-larkfolio-js',
-    get_theme_file_uri('/js/index.js'),
-    array(),       // No dependencies
-    '1.0',         // Version
-    true           // ✅ Load in footer
-  );
-
-  wp_enqueue_script(
     'stimulus-app',
     get_template_directory_uri() . '/js/stimulus-app.js',
     [],
@@ -224,9 +216,9 @@ add_action('wp_enqueue_scripts', 'larkfolio_files');
 
   
 add_action('rest_api_init', function () {
-  register_rest_route('mytheme/v1', '/prs-html', [
+  register_rest_route('larkfolio/v1', '/prs-html', [
     'methods'  => 'POST',
-    'callback' => 'mytheme_render_prs_html',
+    'callback' => 'larkfolio_render_prs_html',
     'permission_callback' => '__return_true', // Adjust for auth if needed
     'args' => [
       'search' => [
@@ -237,7 +229,7 @@ add_action('rest_api_init', function () {
   ]);
 });
 
-function mytheme_render_prs_html($request) {
+function larkfolio_render_prs_html($request) {
   $search = $request->get_param('search');
   // error_log("Search: " . var_dump($search));
   $skill_ids = array_filter(array_map('absint', explode(',', $search)));

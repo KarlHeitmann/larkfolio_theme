@@ -2,6 +2,7 @@ import { Controller } from '/wp-content/themes/larkfolio/js/vendor/stimulus.js';
 
 export default class extends Controller {
   // static values = { id: Number }
+  static targets = [ "results" ]
 
   connect() { 
     this.filters = []
@@ -20,7 +21,7 @@ export default class extends Controller {
     }
     const search = this.filters.join(',')
     console.log("this.filters: ", this.filters)
-    fetch('/wp-json/mytheme/v1/prs-html', {
+    fetch('/wp-json/larkfolio/v1/prs-html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ search })
@@ -28,7 +29,7 @@ export default class extends Controller {
     .then(res => res.json())
     .then(data => {
       // resultsContainer.innerHTML = data.html || '<p>Error loading content.</p>';
-      document.querySelector('#prs-container-results').innerHTML = data.html || '<p>Error loading content.</p>';
+      this.resultsTarget.innerHTML = data.html || '<p>Error loading content.</p>';
       currentTarget.classList.toggle('bg-gray-950');
       if (this.state == 'off') {
         this.state = 'on';
@@ -39,7 +40,7 @@ export default class extends Controller {
     })
     .catch(err => {
       // resultsContainer.innerHTML = '<p class="text-red-500">Request failed.</p>';
-      document.querySelector('#prs-container-results').innerHTML = '<p class="text-red-500">Request failed.</p>';
+      this.resultsTarget.innerHTML = '<p class="text-red-500">Request failed.</p>';
       console.error(err);
     });
   }
