@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   button.addEventListener('click', () => {
     const search = searchInput?.value || '';
 
-    fetch('/wp-json/mytheme/v1/posts-html', {
+    fetch('/wp-json/mytheme/v1/prs-html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ search })

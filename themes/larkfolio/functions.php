@@ -207,9 +207,9 @@ function larkfolio_files() {
 add_action('wp_enqueue_scripts', 'larkfolio_files');
   
 add_action('rest_api_init', function () {
-  register_rest_route('mytheme/v1', '/posts-html', [
+  register_rest_route('mytheme/v1', '/prs-html', [
     'methods'  => 'POST',
-    'callback' => 'mytheme_render_posts_html',
+    'callback' => 'mytheme_render_prs_html',
     'permission_callback' => '__return_true', // Adjust for auth if needed
     'args' => [
       'search' => [
@@ -220,19 +220,22 @@ add_action('rest_api_init', function () {
   ]);
 });
 
-function mytheme_render_posts_html($request) {
+function mytheme_render_prs_html($request) {
   $search = $request->get_param('search');
 
   $query = new WP_Query([
-    'post_type' => 'post',
+    'post_type' => 'pr',
     'posts_per_page' => 5,
-    's' => $search,
+    // 's' => $search,
   ]);
 
-  $posts = $query->have_posts() ? $query->posts : [];
+  $prs = $query->have_posts() ? $query->posts : [];
+
+  // error_log("PRS: " . json_encode($prs));
+  error_log("Step in functions file");
 
   ob_start();
-  get_template_part('template-parts/ajax/posts-results', null, ['posts' => $posts]);
+  get_template_part('template-parts/ajax/prs-results', null, ['prs' => $prs]);
   $html = ob_get_clean();
 
   return new WP_REST_Response([
