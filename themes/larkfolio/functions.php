@@ -221,11 +221,22 @@ add_action('rest_api_init', function () {
 });
 
 function mytheme_render_prs_html($request) {
-  $search = $request->get_param('search');
+  // $search = $request->get_param('search');
+  // Ruby 56
+  // $search = 56;
+  // Rust 62
+  $search = 62;
 
   $query = new WP_Query([
     'post_type' => 'pr',
-    'posts_per_page' => 5,
+    'meta_query' => [
+      [
+        'key' => 'related_skills',
+        'compare' => 'LIKE',
+        'value' => '"' . $search . '"'
+      ]
+    ],
+    // 'posts_per_page' => 5,
     // 's' => $search,
   ]);
 

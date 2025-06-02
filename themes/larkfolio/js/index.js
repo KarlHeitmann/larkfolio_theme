@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const button = document.querySelector('#load-posts-btn');
   const searchInput = document.querySelector('#search-term');
-  const resultsContainer = document.querySelector('.container-results');
+  const resultsContainer = document.querySelector('#prs-container-results');
 
   console.log("DOMContentLoaded!!!");
 
