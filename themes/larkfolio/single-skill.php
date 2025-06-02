@@ -29,7 +29,7 @@ get_header();
   <p class="my-2">
     <?php the_content(); ?>
   </p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
 
     <?php
       get_template_part('single-skill/related-prs');
