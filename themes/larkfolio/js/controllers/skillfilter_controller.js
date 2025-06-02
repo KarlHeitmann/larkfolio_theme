@@ -20,7 +20,7 @@ export default class extends Controller {
       this.filters.push(itemId)
     }
     const search = this.filters.join(',')
-    console.log("this.filters: ", this.filters)
+    currentTarget.classList.add('bg-yellow-500')
     fetch('/wp-json/larkfolio/v1/prs-html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -29,6 +29,7 @@ export default class extends Controller {
     .then(res => res.json())
     .then(data => {
       // resultsContainer.innerHTML = data.html || '<p>Error loading content.</p>';
+      currentTarget.classList.remove('bg-yellow-500')
       this.resultsTarget.innerHTML = data.html || '<p>Error loading content.</p>';
       currentTarget.classList.toggle('bg-gray-950');
       if (this.state == 'off') {
@@ -36,12 +37,11 @@ export default class extends Controller {
       } else {
         this.state = 'off';
       }
-      console.log(this.element)
     })
     .catch(err => {
       // resultsContainer.innerHTML = '<p class="text-red-500">Request failed.</p>';
+      currentTarget.classList.remove('bg-yellow-500')
       this.resultsTarget.innerHTML = '<p class="text-red-500">Request failed.</p>';
-      console.error(err);
     });
   }
 }
