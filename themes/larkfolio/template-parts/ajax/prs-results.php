@@ -1,5 +1,5 @@
+
 <?php
-error_log("ARGS: " . json_encode($args));
 $args = $args ?? [];
 $prs = $args['prs'] ?? [];
 
@@ -9,13 +9,15 @@ if (!$prs) {
 }
 
 foreach ($prs as $pr) {
-  setup_postdata($pr); ?>
-  <div class="border-b py-4">
-    <h2 class="text-xl font-semibold"><?php the_title(); ?></h2>
-    <pre><?php print_r($pr->post_title); ?></pre>
-    <pre><?php var_dump($pr->post_excerpt); ?></pre>
-    <pre><?php print_r($pr->post_content); ?></pre>
-    <p><?php the_excerpt(); ?></p>
-  </div>
-<?php }
+  $post = get_post($pr); // Ensure it's a full WP_Post object
+  setup_postdata($post);
+
+  get_template_part('template-parts/card-pr', null, array(
+    'permalink' => get_permalink($post),
+    'title' => get_the_title($post),
+    'excerpt' => get_the_excerpt($post),
+    'repository_link' => get_field('repository_link', $post->ID),
+    'pr_link' => get_field('pr_link', $post->ID)
+  ));
+}
 wp_reset_postdata();

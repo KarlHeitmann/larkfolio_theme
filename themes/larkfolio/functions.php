@@ -232,7 +232,7 @@ function mytheme_render_prs_html($request) {
   $prs = $query->have_posts() ? $query->posts : [];
 
   // error_log("PRS: " . json_encode($prs));
-  error_log("Step in functions file");
+  // error_log("Step in functions file");
 
   ob_start();
   get_template_part('template-parts/ajax/prs-results', null, ['prs' => $prs]);
