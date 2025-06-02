@@ -240,30 +240,27 @@ add_action('rest_api_init', function () {
 function mytheme_render_prs_html($request) {
   $search = $request->get_param('search');
   // error_log("Search: " . var_dump($search));
-  error_log("Search: " . $search);
-  $meta_query = [];
-  if ($search) {
-    $meta_query = [
-      [
-        'key' => 'related_skills',
+  $skill_ids = array_filter(array_map('absint', explode(',', $search)));
+  $query_args = [
+    'post_type'      => 'pr',
+    'posts_per_page' => -1,
+  ];
+
+  if (!empty($skill_ids)) {
+    $meta_query = ['relation' => 'OR'];
+    foreach ($skill_ids as $id) {
+      $meta_query[] = [
+        'key'     => 'related_skills',
         'compare' => 'LIKE',
-        'value' => '"' . $search . '"'
-      ]
-    ]; 
+        'value'   => '"' . $id . '"',
+      ];
+    }
+    $query_args['meta_query'] = $meta_query;
   }
 
-  $query = new WP_Query([
-    'posts_per_page' => -1,
-    'post_type' => 'pr',
-    'meta_query' => $meta_query,
-    // 'posts_per_page' => 5,
-    // 's' => $search,
-  ]);
+  $query = new WP_Query($query_args);
 
   $prs = $query->have_posts() ? $query->posts : [];
-
-  // error_log("PRS: " . json_encode($prs));
-  // error_log("Step in functions file");
 
   ob_start();
   get_template_part('template-parts/ajax/prs-results', null, ['prs' => $prs]);

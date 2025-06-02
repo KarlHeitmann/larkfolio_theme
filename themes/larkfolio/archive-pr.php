@@ -3,10 +3,9 @@
   ?>
   <div class="container mx-auto px-4">
     <h1 class="text-3xl font-bold my-12">PRs</h1>
-    <div data-controller="hello">
-      Stimulus-powered component
-    </div>
-    <div class="flex flex-row">
+    <div 
+      data-controller="skillfilter"
+      class="flex flex-row">
       <?php
       $skills = new WP_Query(array(
         'posts_per_page' => -1,
@@ -20,9 +19,8 @@
         $skillId = get_the_ID();
         ?>
         <div
-          data-controller="skillfilter"
           data-action="click->skillfilter#filter"
-          data-skillfilter-id-value="<?php echo $skillId; ?>"
+          data-skillfilter-item-id-param="<?php echo $skillId; ?>"
           class="border-3 rounded-2xl mb-12 p-4 bg-gray-700 border-gray-900 cursor-pointer">
           <img
             class="w-12 h-12"
@@ -34,7 +32,6 @@
       }
       ?>
     </div>
-    <button id="load-posts-btn">Load Posts</button>
     <div
       id="prs-container-results"
       class="grid grid-cols-1 md:grid-cols-2 gap-2">
