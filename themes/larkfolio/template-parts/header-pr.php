@@ -1,4 +1,4 @@
-<div class="flex flex-row items-center">
+<div class="flex flex-col md:items-center md:flex-row">
   <h3 class="flex-grow">
     <?php
     $permalink = $args['permalink'];
@@ -9,8 +9,8 @@
     }
     ?>
   </h3>
-  <div class="flex flex-col items-center">
-    <span class="font-bold">Skills</span>
+  <div class="flex flex-col md:items-center ">
+    <span class="font-bold hidden md:inline">Skills</span>
     <div class="flex items-center">
     <?php
       $relatedSkills = get_field('related_skills');
