@@ -22,7 +22,13 @@
   ));
   while ($homepagePrs->have_posts()) {
     $homepagePrs->the_post();
-    get_template_part('template-parts/card-pr');
+    get_template_part('template-parts/card-pr', NULL, array(
+      'permalink' => get_the_permalink(),
+      'title' => get_the_title(),
+      'excerpt' => get_the_excerpt(),
+      'repository_link' => get_field('repository_link'),
+      'pr_link' => get_field('pr_link')
+    ));
   } ?>
   <a
     href="<?php echo site_url('/prs'); ?>"

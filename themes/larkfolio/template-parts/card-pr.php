@@ -1,12 +1,15 @@
 <div class="card">
-  <?php get_template_part('template-parts/header-pr', NULL, array('permalink' => get_the_permalink())); ?>
+  <?php get_template_part('template-parts/header-pr', NULL, array(
+    'permalink' => $args['permalink'],
+    'title' => $args['title']
+  )); ?>
   <p class="my-2">
-    <?php echo get_the_excerpt(); ?>
+    <?php echo $args['excerpt']; ?>
   </p>
   <div class="flex flex-row justify-end">
-    <a class="btn-link mt-2 inline-block" href="<?php the_permalink(); ?>">Read more</a>
+    <a class="btn-link mt-2 inline-block" href="<?php echo $args['permalink']; ?>">Read more</a>
     <div class="flex-grow"></div>
-    <?php renderRepositoryLink(array('repository_link' => get_field('repository_link'))) ?>
-    <?php renderPRLink(array('pr_link' => get_field('pr_link'))); ?>
+    <?php renderRepositoryLink(array('repository_link' => $args['repository_link'])) ?>
+    <?php renderPRLink(array('pr_link' => $args['pr_link'])); ?>
   </div>
 </div>
