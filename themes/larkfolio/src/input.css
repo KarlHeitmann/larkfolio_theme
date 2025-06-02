@@ -24,8 +24,9 @@
 
   .menu-item {
     @apply rounded-md cursor-pointer font-bold
-      px-4 py-2
-      md:py-2 md:px-4 md:mx-1
+      /* px-4 py-4 */
+      p-1
+      md:py-2 md:px-4 md:mx-1 md:my-4
      bg-slate-900 text-slate-100
     hover:bg-slate-800 hover:text-slate-50
   }

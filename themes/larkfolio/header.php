@@ -33,13 +33,13 @@
 
         <!-- Menu -->
         <ul class="absolute top-full left-0 w-full bg-gray-900 text-gray-200 flex-col hidden peer-checked:flex md:flex md:static md:flex-row md:space-x-6 md:w-auto md:bg-transparent">
-          <li><a class="menu-item" href="<?php echo site_url('/'); ?>">Home</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/prs'); ?>">PRs</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/skills'); ?>">Skills</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/projects'); ?>">Projects</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/experience'); ?>">Experience</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/education'); ?>">Education</a></li>
-          <li class=""><a class="menu-item" href="<?php echo site_url('/about'); ?>">About</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/'); ?>">Home</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/prs'); ?>">PRs</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/skills'); ?>">Skills</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/projects'); ?>">Projects</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/experience'); ?>">Experience</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/education'); ?>">Education</a></li>
+          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/about'); ?>">About</a></li>
         </ul>
       </div>
     </header>
