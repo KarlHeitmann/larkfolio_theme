@@ -23,7 +23,7 @@
           data-controller="skillfilter"
           data-action="click->skillfilter#filter"
           data-skillfilter-id-value="<?php echo $skillId; ?>"
-          class="card">
+          class="border-3 rounded-2xl mb-12 p-4 bg-gray-700 border-gray-900 cursor-pointer">
           <img
             class="w-12 h-12"
             src="<?php echo $image['url']; ?>"
