@@ -18,8 +18,9 @@ get_header();
 
 
     get_template_part('template-parts/widgets/title-experience', NULL, array(
+      'company_website' => get_field('company_website'),
       'title' => get_the_title(),
-      'job_title' => get_field('title'),
+      'job_title' => get_field('job_title'),
       'start_date' => get_field('start_date'),
       'end_date' => get_field('end_date'),
       'location' => get_field('location'),

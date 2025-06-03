@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div class="container px-16 py-16">
+<div class="container mx-auto px-16 py-16">
   <?php
   while(have_posts()) {
     the_post();

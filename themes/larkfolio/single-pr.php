@@ -21,7 +21,10 @@ get_header();
   while(have_posts()) {
     the_post(); ?>
 
-    <?php get_template_part('template-parts/header-pr', NULL, array('permalink' => NULL)); ?>
+    <?php get_template_part('template-parts/header-pr', NULL, array(
+      'permalink' => NULL,
+      'title' => get_the_title()
+    )); ?>
     <p class="m-4">
       <?php the_content(); ?>
     </p>

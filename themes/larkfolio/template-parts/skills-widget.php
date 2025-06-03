@@ -1,6 +1,6 @@
 <div class="flex flex-col md:items-center">
   <span class="font-bold hidden md:inline">Skills</span>
-  <div class="flex items-center">
+  <div class="flex items-center flex-wrap">
     <?php
       $relatedSkills = $args['related_skills'];
       if ($relatedSkills) {

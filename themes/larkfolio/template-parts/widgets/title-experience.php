@@ -9,21 +9,41 @@ if ($args['end_date']) {
 }
 
 ?>
-<div class="flex flex-row items-center">
-  <div class="flex-grow">
-    <h2><?php $args['title']; ?></h2>
-    <h3 class="mx-2"><?php echo $args['job_title']; ?></h3>
-    <p class="mx-2 mt-2">
-      <?php echo $args['start_date']; ?> - <?php echo $args['end_date']; ?>
-      <span class="font-bold mx-2">Time spent:</span><?php echo $time_spent; ?></p>
-    <p class="mt-2">
-      <span class="font-bold mx-2">Location:</span><?php echo $args['location']; ?>
-      <?php if($args['remote']): ?>
-        <span class="font-bold text-emerald-600">(REMOTE)</span>
-      <?php endif; ?>
-    </p>
+<div class="flex flex-col">
+  <h2>
+    <?php echo $args['title']; ?>
+  </h2>
+  <div class="flex flex-row items-stretch">
+    <div class="flex flex-col w-1/2">
+      <h3 class="p-2 m-2 border-2 rounded-lg border-amber-500/40">
+        ROLE: <?php echo $args['job_title']; ?>
+      </h3>
+      <div class="p-2 m-2 border-2 rounded-lg border-amber-500/40">
+        <p>
+          <span class="font-bold">Start date: </span><?php echo $args['start_date']; ?>
+        </p>
+        <?php if ($args['end_date']): ?>
+          <p>
+            <span class="font-bold">End date: </span><?php echo $args['end_date']; ?>
+          </p>
+        <?php endif; ?>
+        <p>
+          <span class="font-bold">Time spent: </span><?php echo $time_spent; ?>
+        </p>
+      </div>
+      <div class="p-2 m-2 border-2 rounded-lg border-amber-500/40">
+        <p>
+          <span class="font-bold">Location: </span><?php echo $args['location']; ?>
+          <?php if($args['remote']): ?>
+            <span class="font-bold text-emerald-600"> (REMOTE)</span>
+          <?php endif; ?>
+        </p>
+      </div>
+    </div>
+    <div class="w-1/2 p-2 m-2 border-2 rounded-lg border-amber-500/40">
+      <?php get_template_part('template-parts/skills-widget', NULL, array(
+        'related_skills' => $args['related_skills']
+      )); ?>
+    </div>
   </div>
-  <?php get_template_part('template-parts/skills-widget', NULL, array(
-    'related_skills' => $args['related_skills']
-  )); ?>
 </div>

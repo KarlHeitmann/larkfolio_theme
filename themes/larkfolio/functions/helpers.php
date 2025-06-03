@@ -54,7 +54,7 @@ function renderSkillBadge($args = NULL) {
         group
         items-center
         w-16 h-19
-        mx-1 p-1
+        m-1 p-1
         bg-gray-800"
       href="<?php echo $link; ?>">
       <?php if ($image) { ?>
