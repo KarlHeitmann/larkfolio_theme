@@ -12,16 +12,23 @@ get_header();
   <?php
   while(have_posts()) {
     the_post();
-    ?>
-      <div class="flex flex-row items-center">
-        <h2 class="flex-grow text-2xl font-bold"><?php the_title(); ?></h2>
-        <?php get_template_part('template-parts/skills-widget', NULL, array(
-          'related_skills' => get_field('related_skills')
-        )); ?>
-      </div>
-      <p class="my-2">
-        <?php the_content(); ?>
-      </p>
+    // $time_spent = get_field('start_date') . ' - ' . get_field('end_date');
+    // calculates time difference between start_date and end_date and formats it as years, months, days
+    // $time_spent = get_field('start_date') . ' - ' . get_field('end_date');
+
+
+    get_template_part('template-parts/widgets/title-experience', NULL, array(
+      'title' => get_the_title(),
+      'job_title' => get_field('title'),
+      'start_date' => get_field('start_date'),
+      'end_date' => get_field('end_date'),
+      'location' => get_field('location'),
+      'remote' => get_field('remote'),
+      'related_skills' => get_field('related_skills')
+    )); ?>
+    <p class="my-2">
+      <?php the_content(); ?>
+    </p>
   <?php
   }
   ?>

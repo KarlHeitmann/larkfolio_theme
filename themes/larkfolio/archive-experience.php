@@ -30,7 +30,17 @@
         <?php
         while(have_posts()) {
           the_post();
-          get_template_part('template-parts/card', 'experience');
+          get_template_part('template-parts/card-experience', NULL, array(
+            'related_skills' => get_field('related_skills'),
+            'permalink' => get_the_permalink(),
+            'excerpt' => get_the_excerpt(),
+            'title' => get_the_title(),
+            'job_title' => get_field('title'),
+            'start_date' => get_field('start_date'),
+            'end_date' => get_field('end_date'),
+            'location' => get_field('location'),
+            'remote' => get_field('remote'),
+          ));
         }
         ?>
       </div>

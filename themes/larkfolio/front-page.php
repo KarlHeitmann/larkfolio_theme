@@ -14,7 +14,8 @@ get_header();
     get_template_part('front-page/prs');
     get_template_part('front-page/skills');
     get_template_part('front-page/projects');
-    get_template_part('front-page/education')
+    get_template_part('front-page/experiences');
+    get_template_part('front-page/education');
     ?>
   </div>
 </div>
