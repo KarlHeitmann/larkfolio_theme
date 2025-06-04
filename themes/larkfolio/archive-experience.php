@@ -28,6 +28,12 @@
         data-experience-filter-target="results"
         class="grid grid-cols-1 md:grid-cols-2 gap-2">
         <?php
+        query_posts(array(
+          'post_type' => 'experience',
+          'meta_key' => 'start_date',
+          'orderby' => 'meta_value',
+          'order' => 'DESC', // or 'ASC' for oldest to newest
+        ));
         while(have_posts()) {
           the_post();
           get_template_part('template-parts/card-experience', NULL, array(
