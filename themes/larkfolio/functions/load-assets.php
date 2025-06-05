@@ -12,6 +12,14 @@ function larkfolio_files() {
     true
   );
 }
+
+add_filter('script_loader_tag', function ($tag, $handle) {
+  if ($handle === 'larkfolio-js') {
+    return str_replace('<script ', '<script defer ', $tag);
+  }
+  return $tag;
+}, 10, 2);
+
 add_action('wp_enqueue_scripts', 'larkfolio_files');
 
 // TAILWINDCSS
