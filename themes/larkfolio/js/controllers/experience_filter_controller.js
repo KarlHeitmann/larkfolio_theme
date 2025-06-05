@@ -1,4 +1,4 @@
-import { Controller } from '/wp-content/themes/larkfolio/js/vendor/stimulus.js';
+import { Controller } from '../vendor/stimulus.js';
 
 export default class extends Controller {
   // static values = { id: Number }

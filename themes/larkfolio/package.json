@@ -5,6 +5,10 @@
   "main": "tailwind.config.js",
   "scripts": {
     "watch": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --watch",
+    "esbuild": "npx esbuild js/vendor/stimulus.js js/controllers/* js/stimulus-app.js --bundle --minify --outdir=js/bundle.min.js",
+    "esbuild:watch": "npx esbuild js/vendor/stimulus.js js/controllers/* js/stimulus-app.js --bundle --minify --outdir=js/bundle.min.js --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.min.css --minify",
+    "build": "npm run build:css && npm run esbuild",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
