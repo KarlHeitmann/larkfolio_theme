@@ -2,3 +2,4 @@ upgrade/
 uploads/
 /index.php
 debug.log
+/themes/larkfolio/css/*
