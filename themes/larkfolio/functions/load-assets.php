@@ -24,8 +24,15 @@ add_action('wp_enqueue_scripts', 'larkfolio_files');
 
 // TAILWINDCSS
 function larkfolio_enqueue_styles() {
-  $file_path = get_template_directory() . "/css/style.css";
-  $file_url  = get_template_directory_uri() . "/css/style.css";
+  // Detect environment based on server name or a constant
+  $is_dev = in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1', 'karlheitmann.ddev.site', 'larkfolio-theme.ddev.site']);
+
+  // Choose the appropriate file
+  $css_file = $is_dev ? 'style.css' : 'style.min.css';
+
+  // Build full paths
+  $file_path = get_template_directory() . "/css/{$css_file}";
+  $file_url  = get_template_directory_uri() . "/css/{$css_file}";
 
   wp_enqueue_style(
     'larkfolio-style',
