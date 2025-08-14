@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', 'larkfolio_files');
 // TAILWINDCSS
 function larkfolio_enqueue_styles() {
   // Detect environment based on server name or a constant
-  $is_dev = in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1', 'karlheitmann.ddev.site']);
+  $is_dev = in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1', 'karlheitmann.ddev.site', 'larkfolio-theme.ddev.site']);
 
   // Choose the appropriate file
   $css_file = $is_dev ? 'style.css' : 'style.min.css';

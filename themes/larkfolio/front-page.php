@@ -2,10 +2,13 @@
 get_header();
 ?>
 <div class="container mx-auto px-16 py-16">
+  <h1> WELCOME, STRANGER</h1>
   <?php
   while(have_posts()) {
     the_post();
+    ?> <section class="the-content-wrapper"> <?php
     the_content();
+    ?> </section> <?php
   }
   echo paginate_links();
   ?>

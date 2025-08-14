@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+.the-content-wrapper a {
+  @apply cursor-pointer
+    text-amber-300
+    hover:text-amber-500
+}
+
 @layer base {
   h1 {
     @apply text-5xl font-bold;
