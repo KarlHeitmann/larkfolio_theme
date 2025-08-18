@@ -37,6 +37,14 @@
     hover:bg-slate-800 hover:text-slate-50
   }
 
+  .current-menu-item {
+    @apply
+      rounded-md cursor-pointer font-bold
+      p-1
+      md:py-2 md:px-4 md:mx-1 md:my-4
+      bg-slate-800 text-slate-50
+  }
+
   .btn-link {
     @apply font-bold border rounded-lg cursor-pointer
       px-4 py-2 mx-1

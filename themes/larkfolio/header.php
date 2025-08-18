@@ -17,7 +17,7 @@
     <header class="bg-gray-900 shadow-md py-2 w-full">
       <div class="container mx-auto px-4 flex items-center justify-between relative">
         <div class="logo text-xl font-bold text-gray-200">
-          <a class="menu-item" href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a>
+          <a class="<?php if(is_front_page()) { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/'); ?>"><?php bloginfo('name'); ?></a>
         </div>
 
         <!-- Hidden checkbox toggle -->
@@ -33,13 +33,28 @@
 
         <!-- Menu -->
         <ul class="absolute top-full left-0 w-full bg-gray-900 text-gray-200 flex-col hidden peer-checked:flex md:flex md:static md:flex-row md:space-x-6 md:w-auto md:bg-transparent">
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/'); ?>">Home</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/prs'); ?>">PRs</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/skills'); ?>">Skills</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/projects'); ?>">Projects</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/experience'); ?>">Experience</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/education'); ?>">Education</a></li>
-          <li class="mx-2 my-2 md:my-0"><a class="menu-item" href="<?php echo site_url('/about'); ?>">About</a></li>
+          <?php if(get_post_type() == 'program') echo 'class="current-menu-item"' ?>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(is_front_page()) { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/'); ?>">Home</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(get_post_type() == 'pr') { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/prs'); ?>">PRs</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(get_post_type() == 'skill') { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/skills'); ?>">Skills</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(get_post_type() == 'project') { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/projects'); ?>">Projects</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(get_post_type() == 'experience') { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/experience'); ?>">Experience</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(get_post_type() == 'education') { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/education'); ?>">Education</a>
+          </li>
+          <li class="mx-2 my-2 md:my-0">
+            <a class="<?php if(is_page('about')) { echo 'current-menu-item'; } else { echo 'menu-item'; } ?>" href="<?php echo site_url('/about'); ?>">About</a>
+          </li>
         </ul>
       </div>
     </header>
