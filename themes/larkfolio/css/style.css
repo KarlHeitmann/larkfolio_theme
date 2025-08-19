@@ -220,6 +220,9 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
+  .col-span-3 {
+    grid-column: span 3 / span 3;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -340,6 +343,9 @@
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -369,6 +375,12 @@
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
+  }
+  .self-center {
+    align-self: center;
+  }
+  .justify-self-center {
+    justify-self: center;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -460,6 +472,12 @@
   }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
+  }
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+  .pt-32 {
+    padding-top: calc(var(--spacing) * 32);
   }
   .text-center {
     text-align: center;
@@ -700,6 +718,19 @@
     }
   }
 }
+li.page_item a {
+  cursor: pointer;
+  color: var(--color-amber-300);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-amber-500);
+    }
+  }
+}
+li.current_page_item a {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
 @layer base {
   h1 {
     font-size: var(--text-5xl);
@@ -735,6 +766,18 @@
   }
 }
 @layer components {
+  .breadcrumb-link {
+    cursor: pointer;
+    color: var(--color-amber-300);
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-amber-500);
+      }
+    }
+  }
+  .breadcrumb-span {
+    padding-inline: calc(var(--spacing) * 2);
+  }
   .card {
     margin-bottom: calc(var(--spacing) * 12);
     border-radius: var(--radius-2xl);

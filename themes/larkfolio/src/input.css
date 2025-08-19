@@ -5,6 +5,14 @@
     text-amber-300
     hover:text-amber-500
 }
+li.page_item a {
+  @apply cursor-pointer
+    text-amber-300
+    hover:text-amber-500
+}
+li.current_page_item a {
+  @apply font-bold
+}
 
 @layer base {
   h1 {
@@ -22,6 +30,16 @@
 }
  
 @layer components {
+  .breadcrumb-link {
+    @apply cursor-pointer
+      text-amber-300
+      hover:text-amber-500
+  }
+
+  .breadcrumb-span {
+    @apply px-2
+  }
+
   .card {
     @apply border-3 rounded-2xl 
       mb-12 p-4 
