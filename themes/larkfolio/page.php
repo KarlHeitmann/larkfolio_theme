@@ -4,6 +4,7 @@ get_header();
 
 <div class="container mx-auto px-4">
   <?php
+  get_template_part('template-parts/widgets/breadcrumbs');
   $hasChildren = get_pages(array(
     'child_of' => get_the_ID()
   ));
