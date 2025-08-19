@@ -21,6 +21,7 @@ get_header();
   <?php } else { ?>
     <section>
       <?php get_template_part('page/main_content'); ?>
+      
     </section>
   <?php } ?>
 </div>
