@@ -13,8 +13,9 @@ get_header();
       <article class="col-span-3">
         <?php get_template_part('page/main_content'); ?>
       </article>
-      <aside>
-        <?php get_template_part('page/sidebar_children_pages'); ?>
+      <!--<aside class="justify-self-center self-center">-->
+      <aside class="justify-self-center pt-24">
+        <?php get_template_part('page/sidebar_children_pages', NULL, array('count' => count($hasChildren))); ?>
       </aside>
     </section>
   <?php } else { ?>

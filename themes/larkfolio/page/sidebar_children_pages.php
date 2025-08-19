@@ -1,4 +1,13 @@
 <?php
+$word = NULL;
+if ($args['count'] > 1) { 
+$word = 'these links';
+} else {
+$word = 'this link';
+}
+?>
+<h3>Go deeper by following <?php echo $word; ?></h3>
+<?php
 wp_list_pages(array(
   'title_li' => null, // Removes "Pages" title
   'child_of' => get_the_ID(),

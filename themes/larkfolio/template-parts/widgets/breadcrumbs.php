@@ -1,10 +1,17 @@
-<?php
-$theParent = wp_get_post_parent_id(get_the_ID());
-?><div><?php
-while ($theParent) { ?>
-  <a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent); ?></a> \
-  <?php $theParent = wp_get_post_parent_id($theParent); ?>
-<?php }
+<?php $theParent = wp_get_post_parent_id(get_the_ID());
+$ancestors = [];
+while ($theParent) {
+  $ancestors[] = $theParent;
+  $theParent = wp_get_post_parent_id($theParent);
+}
+$ancestors = array_reverse($ancestors);
 ?>
-<span><?php echo get_the_title(); ?></span>
-</div> <?php
+<div class="flex">
+<?php foreach ($ancestors as $ancestor) { ?>
+  <a
+    class="breadcrumb-link"
+    href="<?php echo get_permalink($ancestor); ?>"><?php echo get_the_title($ancestor); ?></a>
+  <span class="breadcrumb-span">\</span>
+<?php } ?>
+<span class=""><?php echo get_the_title(); ?></span>
+</div>
