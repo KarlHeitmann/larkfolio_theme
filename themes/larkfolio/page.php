@@ -10,7 +10,7 @@ get_header();
   ));
   if ($hasChildren) { ?>
     <section class="grid grid-cols-4">
-      <article class="col-span-3">
+      <article class="col-span-3 the-content-wrapper">
         <?php get_template_part('page/main_content'); ?>
       </article>
       <!--<aside class="justify-self-center self-center">-->
@@ -19,7 +19,7 @@ get_header();
       </aside>
     </section>
   <?php } else { ?>
-    <section>
+    <section class="the-content-wrapper">
       <?php get_template_part('page/main_content'); ?>
       
     </section>
