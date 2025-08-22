@@ -17,7 +17,9 @@ get_header();
   <?php
   while(have_posts()) {
     the_post(); ?>
+    <!--
     <h2 class="text-2xl font-bold my-12"><?php the_title(); ?></h2>
+  -->
     <section class="the-content-wrapper">
       <?php the_content(); ?>
     </section>
