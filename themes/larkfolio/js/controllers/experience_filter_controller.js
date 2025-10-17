@@ -30,7 +30,7 @@ export default class extends Controller {
     .then(res => res.json())
     .then(data => {
       currentTarget.classList.remove('bg-yellow-500')
-      this.resultsTarget.innerHTML = data.html || '<p>EXPERIENCE Error loading content.</p>';
+      this.resultsTarget.innerHTML = data || '<p>EXPERIENCE Error loading content.</p>';
       currentTarget.classList.toggle('bg-gray-950');
       if (this.state == 'off') {
         this.state = 'on';

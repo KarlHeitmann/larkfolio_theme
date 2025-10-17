@@ -27,13 +27,7 @@ export default class extends Controller {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ search })
     })
-    .then(res => {
-      console.log(res)
-      return res.text()
-      // return res.json()
-    })
-    // .then(res => res.json())
-    // .then(res => res.text())
+    .then(res => res.json())
     .then(data => {
       console.log(data)
       currentTarget.classList.remove('bg-yellow-500')
