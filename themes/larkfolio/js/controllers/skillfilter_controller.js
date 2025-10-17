@@ -27,11 +27,18 @@ export default class extends Controller {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ search })
     })
-    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      return res.text()
+      // return res.json()
+    })
+    // .then(res => res.json())
+    // .then(res => res.text())
     .then(data => {
-      // resultsContainer.innerHTML = data.html || '<p>Error loading content.</p>';
+      console.log(data)
       currentTarget.classList.remove('bg-yellow-500')
-      this.resultsTarget.innerHTML = data.html || '<p>Error loading content.</p>';
+      // this.resultsTarget.innerHTML = data.html || '<p>SKILLError loading content.</p>';
+      this.resultsTarget.innerHTML = data || '<p>My SKILL Error loading content.</p>';
       currentTarget.classList.toggle('bg-gray-950');
       if (this.state == 'off') {
         this.state = 'on';

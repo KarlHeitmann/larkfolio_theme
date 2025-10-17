@@ -66,9 +66,16 @@ function larkfolio_render_prs_html($request) {
   get_template_part('template-parts/ajax/prs-results', null, ['prs' => $prs]);
   $html = ob_get_clean();
 
-  return new WP_REST_Response([
-    'html' => $html
-  ], 200);
+  return new WP_REST_Response($html, 200);
+
+  // return new WP_REST_Response($html, 200, [
+  //   'Content-Type' => 'text/html; charset=utf-8'
+  // ]);
+
+  // $response = new WP_REST_Response( $html, 200 );
+  // $response->set_headers( array( 'Content-Type' => 'text/html' ) );
+
+  // return $response;
 }
 
 function larkfolio_render_experiences_html($request) {
