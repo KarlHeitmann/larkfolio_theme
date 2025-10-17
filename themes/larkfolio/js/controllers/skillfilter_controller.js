@@ -29,7 +29,7 @@ export default class extends Controller {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       currentTarget.classList.remove('bg-yellow-500')
       // this.resultsTarget.innerHTML = data.html || '<p>SKILLError loading content.</p>';
       this.resultsTarget.innerHTML = data || '<p>My SKILL Error loading content.</p>';

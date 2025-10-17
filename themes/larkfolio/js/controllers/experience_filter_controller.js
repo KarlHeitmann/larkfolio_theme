@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = [ "results" ]
 
   connect() { 
-    console.log("Experience Filter Controller connected")
+    // console.log("Experience Filter Controller connected")
     this.filters = []
     this.state = 'off'
   }
